@@ -24,3 +24,74 @@
   </mat-button-toggle-group>
   {{ toggleGroup.value }}
 </div>
+
+<div>
+  <mat-icon color="primary">grade</mat-icon>
+</div>
+
+<div>
+  <span [matBadge]="notifications" [matBadgeHidden]="notifications === 0"
+    >Notifications</span
+  >
+</div>
+<div>
+  <span
+    matBadge="5"
+    matBadgePosition="below before"
+    matBadgeSize="large"
+    matBadgeColor="warn"
+    >Notifications</span
+  >
+</div>
+<div>
+  <span
+    matBadge="5"
+    matBadgePosition="below after"
+    matBadgeSize="medium"
+    matBadgeColor="accent"
+    matBadgeOverlap="false"
+    >Notifications</span
+  >
+</div>
+<div>
+  <span matBadge="5" matBadgePosition="above before" matBadgeSize="small"
+    >Notifications</span
+  >
+</div>
+
+<div>
+  <mat-progress-spinner value="40" color="accent"></mat-progress-spinner>
+  <mat-spinner *ngIf="showSpinner"></mat-spinner>
+  <button mat-raised-button color="primary" (click)="loadData()">Load</button>
+</div>
+
+<div style="width: 200px; height: 30px">
+  <mat-progress-bar
+    mode="indeterminate"
+    style="width: 200px; height: 30px"
+  ></mat-progress-bar>
+</div>
+
+<div>
+  <mat-toolbar class="navbar" color="primary">
+    <div>Hello world</div>
+    <div>
+      <span>Home</span>
+      <span>About</span>
+      <span>Services</span>
+    </div>
+  </mat-toolbar>
+</div>
+
+<button mat-raised-button color="primary" (click)="sidenavOpen = !sidenavOpen">
+  Toggle Sidenav
+</button>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" [opened]="sidenavOpen">Sidenav</mat-sidenav>
+  <mat-sidenav-content>
+    <span>Content</span>
+    <button mat-raised-button (click)="sidenav.open()">Open</button>
+    <button mat-raised-button (click)="sidenav.close()">Close</button>
+    <button mat-raised-button (click)="sidenav.toggle()">Toggle</button>
+  </mat-sidenav-content>
+</mat-sidenav-container>
