@@ -1,40 +1,41 @@
-<div>
+<section>
   <button mat-raised-button>a</button>
   <button mat-flat-button>a</button>
   <button mat-stroked-button>a</button>
-</div>
+</section>
 
-<div>
+<section>
   <button mat-icon-button>1</button>
   <button mat-fab>2</button>
   <button mat-mini-fab>3</button>
-</div>
+</section>
 
-<div>
+<section>
   <button color="primary" mat-raised-button>a</button>
   <button color="accent" mat-raised-button>a</button>
   <button color="warn" mat-raised-button>a</button>
-</div>
+</section>
 
-<div>
+<section>
   <mat-button-toggle-group #toggleGroup="matButtonToggleGroup" multiple>
     <mat-button-toggle value="angular">Angular</mat-button-toggle>
     <mat-button-toggle value="react">React</mat-button-toggle>
     <mat-button-toggle value="vue">Vue</mat-button-toggle>
   </mat-button-toggle-group>
   {{ toggleGroup.value }}
-</div>
+</section>
 
-<div>
+<section>
   <mat-icon color="primary">grade</mat-icon>
-</div>
+</section>
 
-<div>
+<section>
   <span [matBadge]="notifications" [matBadgeHidden]="notifications === 0"
     >Notifications</span
   >
-</div>
-<div>
+</section>
+
+<section>
   <span
     matBadge="5"
     matBadgePosition="below before"
@@ -42,8 +43,9 @@
     matBadgeColor="warn"
     >Notifications</span
   >
-</div>
-<div>
+</section>
+
+<section>
   <span
     matBadge="5"
     matBadgePosition="below after"
@@ -52,36 +54,33 @@
     matBadgeOverlap="false"
     >Notifications</span
   >
-</div>
-<div>
+</section>
+<section>
   <span matBadge="5" matBadgePosition="above before" matBadgeSize="small"
     >Notifications</span
   >
-</div>
+</section>
 
-<div>
+<section>
   <mat-progress-spinner value="40" color="accent"></mat-progress-spinner>
   <mat-spinner *ngIf="showSpinner"></mat-spinner>
   <button mat-raised-button color="primary" (click)="loadData()">Load</button>
-</div>
+</section>
 
-<div style="width: 200px; height: 30px">
-  <mat-progress-bar
-    mode="indeterminate"
-    style="width: 200px; height: 30px"
-  ></mat-progress-bar>
-</div>
+<section style="width: 200px; height: 30px">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</section>
 
-<div>
+<section>
   <mat-toolbar class="navbar" color="primary">
-    <div>Hello world</div>
-    <div>
+    <section>Hello world</section>
+    <section>
       <span>Home</span>
       <span>About</span>
       <span>Services</span>
-    </div>
+    </section>
   </mat-toolbar>
-</div>
+</section>
 
 <button mat-raised-button color="primary" (click)="sidenavOpen = !sidenavOpen">
   Toggle Sidenav
@@ -95,3 +94,70 @@
     <button mat-raised-button (click)="sidenav.toggle()">Toggle</button>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+<section>
+  <br /><br /><br /><br /><br />
+  <mat-menu #appMenu="matMenu" xPosition="after" yPosition="above">
+    <button mat-menu-item [matMenuTriggerFor]="subMenu">FrontEnd</button>
+    <button mat-menu-item>BackEnd</button>
+  </mat-menu>
+  <button mat-raised-button [matMenuTriggerFor]="appMenu">Menu</button>
+
+  <mat-menu #subMenu="matMenu">
+    <button mat-menu-item>Angular</button>
+    <button mat-menu-item>React</button>
+    <button mat-menu-item>Vue</button>
+  </mat-menu>
+
+  <mat-menu #lazyMenu="matMenu">
+    <ng-template matMenuContent let-name="name">
+      <button mat-menu-item>Settings</button>
+      <button mat-menu-item>Logout ({{ name }})</button>
+    </ng-template>
+  </mat-menu>
+  <button
+    mat-raised-button
+    [matMenuTriggerData]="{ name: 'Julio' }"
+    [matMenuTriggerFor]="lazyMenu"
+  >
+    Load
+  </button>
+</section>
+
+<section>
+  <mat-list>
+    <mat-list-item>Item 1</mat-list-item>
+    <mat-list-item>Item 2</mat-list-item>
+    <mat-list-item>Item 3</mat-list-item>
+  </mat-list>
+
+  <mat-list dense>
+    <mat-list-item>Item 1</mat-list-item>
+    <mat-list-item>Item 2</mat-list-item>
+    <mat-list-item>Item 3</mat-list-item>
+  </mat-list>
+
+  <mat-nav-list>
+    <a mat-list-item href="#">Home</a>
+    <a mat-list-item href="#">About</a>
+    <a mat-list-item href="#">Services</a>
+  </mat-nav-list>
+
+  <mat-list>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <mat-icon matListIcon>home</mat-icon>
+      <h3 matLine>Heading</h3>
+      <p matLine>Line</p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <mat-icon matListIcon>folder</mat-icon>
+      <h3 matLine>Heading 2</h3>
+      <p matLine>Line 2</p>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-list>
+</section>
+
+<footer>...</footer>
